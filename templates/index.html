@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; }
+        img { width: 200px; height: auto; margin: 10px; border: 1px solid #ccc; }
+        form { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Galeria de Fotos</h1>
+
+    {% if message %}
+    <p><strong>{{ message }}</strong></p>
+    {% endif %}
+
+    <div>
+        {% for num, foto in photos %}
+            <div style="display: inline-block">
+                <img src="{{ foto }}" alt="Foto {{ num }}">
+                <p>Foto {{ num }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <form method="post">
+        <label for="chave">Cole aqui a chave:</label><br>
+        <input type="text" name="chave" id="chave" style="width: 400px" required>
+        <br><br>
+        <button type="submit">Desbloquear</button>
+    </form>
+</body>
+</html>
